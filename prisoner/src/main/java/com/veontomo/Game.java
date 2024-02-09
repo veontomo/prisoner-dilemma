@@ -6,4 +6,6 @@ public interface Game {
 
 	List<Integer> play();
 
+	Integer score();
+
 }

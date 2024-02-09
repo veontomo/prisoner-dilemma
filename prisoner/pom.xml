@@ -8,7 +8,20 @@
     <version>1.0-SNAPSHOT</version>
     <name>prisoner</name>
     <url>http://maven.apache.org</url>
+    <repositories>
+        <repository>
+            <id>in-project</id>
+            <name>In Project Repo</name>
+            <url>file://${project.basedir}/libs</url>
+        </repository>
+    </repositories>
+
     <dependencies>
+        <dependency>
+            <groupId>com.external.player</groupId>
+            <artifactId>interfaces</artifactId>
+            <version>1.0</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

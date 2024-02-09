@@ -4,8 +4,6 @@ import java.util.Optional;
 
 public class HonestPlayer implements Player {
 
-
-
 	private Optional<MatchOutcome> last;
 
 	public HonestPlayer() {
@@ -18,14 +16,13 @@ public class HonestPlayer implements Player {
 	}
 
 	@Override
-	public void remember(MatchOutcome o) {
-		this.last = Optional.of(o);
-
+	public String getName() {
+		return "honest";
 	}
 
 	@Override
-	public String getName() {
-		return "honest";
+	public void opponentDecision(MatchOutcome o) {
+		this.last = Optional.of(o);
 	}
 
 }

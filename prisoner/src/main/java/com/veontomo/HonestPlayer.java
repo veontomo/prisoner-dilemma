@@ -21,7 +21,7 @@ public class HonestPlayer implements Player {
 	}
 
 	@Override
-	public void remember(MatchOutcome o) {
+	public void opponentDecision(MatchOutcome o) {
 		this.last = Optional.of(o);
 
 	}

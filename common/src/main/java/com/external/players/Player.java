@@ -4,8 +4,7 @@ public interface Player {
 
 	MatchOutcome play();
 
-	void remember(MatchOutcome o);
-
 	String getName();
 
+	void opponentDecision(MatchOutcome o);
 }

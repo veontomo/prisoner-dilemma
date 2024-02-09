@@ -13,7 +13,7 @@ public class EvilPlayer implements Player {
 	}
 
 	@Override
-	public void remember(MatchOutcome o) {
+	public void opponentDecision(MatchOutcome o) {
 		// nothing to do here
 	}
 

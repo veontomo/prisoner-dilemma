@@ -29,7 +29,7 @@ public class RandomSkewedPlayer implements Player {
 	}
 
 	@Override
-	public void remember(MatchOutcome o) {
+	public void opponentDecision(MatchOutcome o) {
 
 	}
 

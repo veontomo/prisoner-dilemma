@@ -14,22 +14,23 @@ import com.external.players.Player;
  */
 public class App {
 	public static void main(String[] args) {
-//		final Player p1 = new GoodPlayer();
-//		final Player p2 = new RandomBinaryPlayer();
-//		final Player p3 = new HonestPlayer();
+		System.out.println("Loading player jars from " + args[0]);
+		final Player p1 = new GoodPlayer();
+		final Player p2 = new RandomBinaryPlayer();
+		final Player p3 = new HonestPlayer();
 		final Player p4 = new RandomSkewedPlayer(0.2d);
-		List<Player> players = loadPlayers();
+		List<Player> players = loadPlayers(args[0]);
 		final Player p5 = new RandomSkewedPlayer(0.1d);
 		final Game game = new TwoPlayerGame(players.get(0), p5, 1000);
 		List<Integer> result = game.play();
 		System.out.println(result);
+		System.out.println(game.score());
 
 	}
 
-	private static List<Player> loadPlayers() {
+	private static List<Player> loadPlayers(String folder) {
 		List<Player> plugins = new ArrayList<>();
-		File pluginsDir = new File(
-				"c:/Users/a.shcherbakov.WE-COM/Documents/projects/sandbox/prisoner-dilemma/player1/target/");
+		File pluginsDir = new File(folder);
 
 		File[] jarFiles = pluginsDir.listFiles((dir, name) -> name.endsWith(".jar"));
 
@@ -37,10 +38,11 @@ public class App {
 			for (File jarFile : jarFiles) {
 				try (URLClassLoader classLoader = new URLClassLoader(new URL[] { jarFile.toURI().toURL() })) {
 					Class<?> pluginClass = classLoader.loadClass("com.external.players.HonestPlayer");
-					Player plugin = (Player) pluginClass.getDeclaredConstructor().newInstance();
-					plugins.add(plugin);
+					if (pluginClass.getDeclaredConstructor().newInstance() instanceof Player p) {
+						plugins.add(p);
+					}
 				} catch (Exception e) {
-					e.printStackTrace();
+					System.err.println("Failed to load the class from " + jarFile.getAbsolutePath());
 				}
 			}
 		}
