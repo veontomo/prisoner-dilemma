@@ -2,6 +2,9 @@ package com.veontomo;
 
 import java.util.List;
 
+import com.external.players.MatchOutcome;
+import com.external.players.Player;
+
 public class TwoPlayerGame implements Game {
 
 	private final Player player1;
@@ -16,6 +19,7 @@ public class TwoPlayerGame implements Game {
 
 	@Override
 	public List<Integer> play() {
+		System.out.println(this.player1.getName() + " vs " + this.player2.getName());
 		Scores total = new Scores(0, 0);
 		for (int i = 0; i < this.rounds; i++) {
 			MatchOutcome outcome1 = this.player1.play();

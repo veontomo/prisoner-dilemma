@@ -1,9 +1,6 @@
-package com.veontomo;
+package com.external.players;
 
 import java.util.Optional;
-
-import com.external.players.MatchOutcome;
-import com.external.players.Player;
 
 public class HonestPlayer implements Player {
 
@@ -28,7 +25,7 @@ public class HonestPlayer implements Player {
 
 	@Override
 	public String getName() {
-		return "honest player";
+		return "honest";
 	}
 
 }

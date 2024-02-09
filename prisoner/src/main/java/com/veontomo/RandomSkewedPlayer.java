@@ -2,6 +2,9 @@ package com.veontomo;
 
 import java.util.Random;
 
+import com.external.players.MatchOutcome;
+import com.external.players.Player;
+
 public class RandomSkewedPlayer implements Player {
 
 
@@ -28,6 +31,11 @@ public class RandomSkewedPlayer implements Player {
 	@Override
 	public void remember(MatchOutcome o) {
 
+	}
+
+	@Override
+	public String getName() {
+		return String.format("%2.0f/%2.0f player", 100 * this.rate, 100 - 100 * this.rate);
 	}
 
 }
