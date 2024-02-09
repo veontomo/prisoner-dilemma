@@ -9,8 +9,10 @@ import java.util.List;
 public class App {
 	public static void main(String[] args) {
 		final Player p1 = new GoodPlayer();
-		final Player p2 = new RandomPlayer();
-		final Game game = new TwoPlayerGame(p1, p2, 100);
+		final Player p2 = new RandomBinaryPlayer();
+		final Player p3 = new HonestPlayer();
+		final Player p4 = new RandomSkewedPlayer(0.0d);
+		final Game game = new TwoPlayerGame(p3, p4, 1000);
 		List<Integer> result = game.play();
 		System.out.println(result);
 	}

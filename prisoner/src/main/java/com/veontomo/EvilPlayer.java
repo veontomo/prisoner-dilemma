@@ -1,17 +1,8 @@
 package com.veontomo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class EvilPlayer implements Player {
 
 
-
-	private final List<MatchOutcome> states;
-
-	public EvilPlayer() {
-		this.states = new ArrayList<>(10);
-	}
 
 	@Override
 	public MatchOutcome play() {
@@ -20,8 +11,7 @@ public class EvilPlayer implements Player {
 
 	@Override
 	public void remember(MatchOutcome o) {
-		this.states.add(o);
-
+		// nothing to do here
 	}
 
 }
