@@ -1,36 +1,21 @@
 package com.veontomo;
 
-import java.util.Random;
+import com.external.players.RoundOutcome;
 
-import com.external.players.MatchOutcome;
-import com.external.players.Player;
+public class RandomSkewedPlayer extends RandomPlayer {
 
-public class RandomSkewedPlayer implements Player {
-
-
-
-	private final Random random = new Random();
 	private double rate;
 
 	/**
 	 * A player that betrays with given probability.
 	 */
-	public RandomSkewedPlayer(double rate) {
-		if (rate < 0 || rate > 1) {
-			throw new IllegalArgumentException("The rate must be in range from 0 to 1");
-		}
-		this.rate = rate;
-
+	public RandomSkewedPlayer() {
+		this.rate = 0.2d;
 	}
 
 	@Override
-	public MatchOutcome play() {
-		return this.random.nextDouble() < this.rate ? MatchOutcome.BETRAY : MatchOutcome.COOPERATE;
-	}
-
-	@Override
-	public void opponentDecision(MatchOutcome o) {
-
+	public RoundOutcome play() {
+		return this.random.nextDouble() < this.rate ? RoundOutcome.BETRAY : RoundOutcome.COOPERATE;
 	}
 
 	@Override

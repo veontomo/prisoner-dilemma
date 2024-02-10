@@ -4,15 +4,15 @@ import java.util.Optional;
 
 public class HonestPlayer implements Player {
 
-	private Optional<MatchOutcome> last;
+	private Optional<RoundOutcome> last;
 
 	public HonestPlayer() {
 		this.last = Optional.empty();
 	}
 
 	@Override
-	public MatchOutcome play() {
-		return this.last.orElse(MatchOutcome.COOPERATE);
+	public RoundOutcome play() {
+		return this.last.orElse(RoundOutcome.COOPERATE);
 	}
 
 	@Override
@@ -21,7 +21,7 @@ public class HonestPlayer implements Player {
 	}
 
 	@Override
-	public void opponentDecision(MatchOutcome o) {
+	public void opponentDecision(RoundOutcome o) {
 		this.last = Optional.of(o);
 	}
 

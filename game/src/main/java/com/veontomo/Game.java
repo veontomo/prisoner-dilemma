@@ -1,11 +1,9 @@
 package com.veontomo;
 
-import java.util.List;
+import com.external.players.Player;
 
 public interface Game {
 
-	List<Integer> play();
-
-	Integer score();
+	Scores play(Player p1, Player p2);
 
 }

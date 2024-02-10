@@ -1,6 +1,6 @@
 package com.veontomo;
 
-import com.external.players.MatchOutcome;
+import com.external.players.RoundOutcome;
 import com.external.players.Player;
 
 public class GoodPlayer implements Player {
@@ -8,12 +8,12 @@ public class GoodPlayer implements Player {
 
 
 	@Override
-	public MatchOutcome play() {
-		return MatchOutcome.COOPERATE;
+	public RoundOutcome play() {
+		return RoundOutcome.COOPERATE;
 	}
 
 	@Override
-	public void opponentDecision(MatchOutcome o) {
+	public void opponentDecision(RoundOutcome o) {
 		// nothing to do here
 	}
 

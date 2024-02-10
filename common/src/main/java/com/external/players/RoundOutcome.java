@@ -1,6 +1,6 @@
 package com.external.players;
 
-public enum MatchOutcome {
+public enum RoundOutcome {
 	COOPERATE, BETRAY;
 
 }
